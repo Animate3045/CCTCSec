@@ -4,3 +4,32 @@ Stack Number	Username	Password	        jump
 http://10.50.20.103:8000 - internal CTFd server
 
 https://sec.cybbh.io/public/security/latest/index.html - Security Public Module
+
+https://vta.cybbh.space/project/
+
+real world - use control sockets for tunneling
+
+Methodology
+- build dynamic tunnel to jump box
+- host discovery
+    run for loop from jump box
+     other type of for loop: for i in {1..254}; do ping -c 1 192.168.28.$i | grep "bytes from" 
+- port enumeration
+- port interrogation (banner grab)
+- Web Sites
+    nmap http-enum script
+    robots.txt
+    interact with site
+    view source
+    IF WE COME ACROSS INPUT FIELDS
+        Directory Traversal
+            ........./etc/passwd -> looking for users with a login shell; also identify that user's root directory
+            ........./etc/hosts -> might have additional sites you can reach
+        Command Injection 
+
+
+Forget wget exists after the ftp question today
+
+proxychains nc -vvv 192.168.28.120 4242
+
+firefox -> hamburger -> settings -> network settings -> manual proxy configuration -> SOCKS -> 127.0.0.1 port 9050
