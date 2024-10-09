@@ -1,0 +1,15 @@
+OSINT - must be tied to an intelligence requirement
+keep in mind EO12333 concerns...
+
+Web Data
+    Cached Content, Analytics, Proxy Web Application, Command Line Interrogation
+Sensitive Data
+    Business Data, Profiles, Non-Profits/Charities, Business Filings, Historical and Public Listings
+Publicly Accessible
+    Physical Addresses, Phone Numbers, Email Addresses, User Names, Search Engine Data, Web and Traffic Cameras, Wireless Access Point Data
+Social Media
+    Twitter, Facebook, Instagram, People Searches, Registry and Wish Lists
+Domain and IP Data
+    DNS Registration, IP Address Assignments, Geolocation Data, Whois
+
+Scrape data using python
