@@ -48,7 +48,7 @@ Can help Identify a box based on the ping response
 128 = windows
 64 = some type of nix
 60 = mac
-255 = solaris
+255 = solaris/Cisco
 
 -------------------------------
 

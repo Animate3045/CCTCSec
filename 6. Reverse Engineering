@@ -1,0 +1,30 @@
+Workflow
+
+Set the appropriate objective - you shouldn't be trying to understand every line of the code out of the gate 
+
+Initial static analysis
+    drag and drop to a text file 
+        MZ - windows environment
+        ELF - linux executable format
+    look for ascii strings in the file
+    look for encrypted sections
+
+Behavioral Analysis
+    How does it run? How does it change the system?
+    Snapshots & diff 
+
+Dynamic analysis
+    Use a debugger
+
+Disassembly
+    IDA: better at graphically displaying the flow of a program
+        older
+        better debugger 
+    Ghidra: open source from the NSA
+        has a decompiler function (best attempt) - compiling is a lossy process
+        assembly and c code side-by-side
+        patching (assembly only) 
+    Find a good spot - browse top to bottom/bottom to top
+
+Scientific method - hypothesis, and test
+
