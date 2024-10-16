@@ -33,3 +33,17 @@ Forget wget exists after the ftp question today
 proxychains nc -vvv 192.168.28.120 4242
 
 firefox -> hamburger -> settings -> network settings -> manual proxy configuration -> SOCKS -> 127.0.0.1 port 9050
+
+Check out this breakdown. 
+If you're at the "Passing Subtotal" for the lesson we're on, you're on track to get the 70% on the challenges: 
+Module | Points | Subtotal | Passing Subtotal 
+----------------------------------------------------------- 
+Recon | 35 | 35 | 24.5 
+Exploit Research | 16 | 51 | 35.7 
+Web Exploitation 1 (XSS, CMD Injection) | 52 | 103 | 72.1 
+Web Exploitation 2 (SQL) | 43 | 146 | 102.2 
+Reverse Engineering | 103 | 249 | 174.3 
+Exploit Development | 16 | 365 | 185.5 
+Post Exploitation | 56 | 321 | 224.7 
+Windows Exploitation | 36 | 357 | 249.9 
+Linux Exploitation | 67 | 424 | 296.8 
